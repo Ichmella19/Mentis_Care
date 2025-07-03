@@ -1,167 +1,152 @@
-import React, { useEffect } from "react";
-import { ArrowRight } from "lucide-react";
-import AOS from "aos";
-import "aos/dist/aos.css";
-type June = {
-  title: string;
-  description: string;
-};
-type AboutUsProps = {
-  theme?: 'light' | 'dark';
-};
-
-const June = [
-  {
-    title: "Outils de suivi médical",
-    description:
-      "Une approche numérique pour un accompagnement médical personnalisé.",
-  },
-  {
-    title: "Espace d'échange",
-    description:
-      "Favoriser l'inclusion et l'écoute active via des espaces sécurisés.",
-  },
-  {
-    title: "Sensibilisation et éducation",
-    description:
-      "Informer pour déstigmatiser et construire une société plus compréhensive.",
-  },
-  {
-    title: "Orientation vers les structures spécialisées ",
-    description:
-      "Diriger les patients vers les centres de soins les plus adaptés.",
-  },
-];
-const AboutUs: React.FC<AboutUsProps> = ({ theme = "light" }) => {
-  useEffect(() => {
-    AOS.init({ duration: 1000, once: true });
-  }, []);
-
-  const textColor = theme === "light" ? "text-gray-700" : "text-gray-200";
-  const softTextColor = theme === "light" ? "text-gray-600" : "text-gray-400";
-  const bgGradient = theme === "light" ? "from-blue-50 to-white" : "from-gray-800 to-gray-900";
-  const borderColor = theme === "light" ? "border-gray-300" : "border-gray-600";
-  const cardBg = theme === "light" ? "bg-white" : "bg-gray-800";
-  const titleColor = theme === "light" ? "text-blue-800" : "text-blue-400";
-
+import React from 'react';
+import { motion } from "framer-motion";
+interface AboutUsProps {
+  theme: "light" | "dark";
+}
+const AboutUs: React.FC<AboutUsProps> = ({ theme = "light" }: AboutUsProps) => {
+  
   return (
-    <section
-      className={`w-full bg-gradient-to-b ${bgGradient} py-20 overflow-hidden md:px-28 text-center transition-colors duration-300`}
-      style={{ fontFamily: "Winky Sans, sans-serif" }}
-    >
-      <div className="max-w-5xl mx-auto py-[35px]">
-        <h2 className={`text-4xl md:text-4xl font-semibold ${titleColor} mb-6`}>
-          Nous sommes
-        </h2>
-        <h2 className={`relative inline-block text-4xl md:text-7xl font-extrabold ${titleColor} mb-6`}>
-          <span className="relative z-10">MentisCare</span>
-        </h2>
-        <p className={`text-lg md:text-xl font-medium ${textColor} mb-8 leading-relaxed`}>
-          "Une initiative humaine et technologique pour redonner de l'espoir à ceux que la société oublie trop souvent."
-        </p>
-        <p className={`${softTextColor} text-lg md:text-xl leading-relaxed mb-6`}>
-          💡 <strong>Notre réponse ?</strong> Une plateforme numérique conçue pour <strong>digitaliser les processus du centre</strong>,
-          <strong> assurer un suivi médical à distance</strong>, <strong> sensibiliser le public</strong>, et <strong> lutter contre la stigmatisation</strong>
-          autour des troubles psychiques.
-        </p>
-      </div>
-
-      <div className={`max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-10 border ${borderColor} rounded-xl p-[40px]`}>  
-        <div className="w-full md:w-1/2 text-center md:text-left">
-          <h2 className={`text-4xl md:text-6xl font-extrabold ${titleColor} relative inline-block after:block after:w-16 after:h-1 after:${titleColor} after:mt-2`}>
-            Qui sommes-nous ?
-          </h2>
-        </div>
-
-        <div className={`w-full md:w-1/2 ${textColor} text-lg md:text-xl leading-relaxed`}>
-          <p className="mb-4">
-            <strong className="text-blue-700">MentisCare</strong> est né d’un constat poignant : au Bénin, la santé mentale est encore largement négligée.
-          </p>
-          <p className="mb-4">
-            Lors d’une immersion au <span className="font-semibold text-blue-700">Centre Psychiatrique Saint Camille de Tokan</span>,
-            notre équipe a réalisé l'urgence d'agir.
-          </p>
-          <p className={`italic ${softTextColor} mt-6 text-base md:text-lg border-l-4 border-blue-700 pl-4`}>
-            « Digitaliser la santé mentale au Bénin, c’est offrir un avenir plus digne, plus humain, et plus connecté. »
-          </p>
-        </div>
-      </div>
-
-      {/* Services */}
-      <div className="py-12 px-4 md:px-12">
-        <div className="flex items-center justify-between mb-8">
-          <h2 className={`text-3xl md:text-5xl font-semibold ${titleColor}`}>NOS SERVICES</h2>
-          <button className="flex items-center gap-2 border border-blue-600 text-blue-600 px-4 py-1 rounded-full text-sm">
-            Voir tout
-            <span className="bg-blue-600 text-white p-1 rounded-full">
-              <ArrowRight size={14} />
-            </span>
-          </button>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {June.map((item, index) => (
-            <div
-              key={index}
-              className={`border ${borderColor} ${cardBg} shadow-md p-6 rounded-lg flex flex-col items-start`}
-            >
-              <div className="bg-blue-600 text-white w-10 h-10 flex items-center justify-center rounded-full mb-4">
-                {index + 1}
-              </div>
-              <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
-              <p className={`text-sm ${softTextColor} mb-4`}>{item.description}</p>
-              <button className="mt-auto text-sm bg-blue-600 text-white px-4 py-2 rounded-full">
-                Prendre RDV
-              </button>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Identité */}
-      <section id="identite" className="py-20 px-6 md:px-20">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
-          <div className="flex-1" data-aos="fade-right">
-            <img
-              src="../src/assets/images/mentis.webp"
-              alt="Identité MentisCare"
-              className="rounded-2xl shadow-xl object-cover h-[400px] md:h-[600px] w-full md:w-[600px]"
-            />
-          </div>
-
-          <div className="flex-1 flex flex-col gap-6" data-aos="fade-left">
-            <h2 className={`text-3xl md:text-4xl font-bold ${titleColor} mb-4`}>Notre identité</h2>
-            <p className={`${textColor} md:text-xl text-lg leading-relaxed`}>
-              MentisCare, c’est une initiative humaine et sociale, pour briser le silence autour de la santé mentale au Bénin.
-              Nous combinons technologie, compassion et engagement communautaire.
+    <div className= {`min-h-screen flex flex-col bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100${
+                    theme === "light" 
+                        ? "bg-white text-black" 
+                        : "bg-black text-white"
+                }`}style={{ fontFamily: 'Montserrat, sans-serif' }}>
+      <main className="flex-1">
+        {/* Hero Section */}
+      
+          <div className="bg-[#2E86AB] text-white py-[120px] px-6 md:px-24 text-center">
+          <motion.h1 initial={{ opacity: 0, y: -30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-5xl font-extrabold mb-6">MentisCare</motion.h1>
+            <p className="text-xl font-medium mx-auto max-w-3xl">
+              Une initiative humaine et technologique pour redonner de l'espoir à ceux que la société oublie trop souvent.
             </p>
+          </div>
+    
 
-            <div className="flex flex-col gap-4 mt-6">
-              <div className={`border ${borderColor} rounded-2xl p-4`}>
-                <h3 className="text-xl font-semibold text-blue-700 mb-1">1. Notre vision</h3>
-                <p className={`${textColor} md:text-xl text-lg`}>
-                  Offrir à chaque personne en détresse un accès digne, humain et durable à des soins adaptés.
-                </p>
-              </div>
-
-              <div className={`border ${borderColor} rounded-2xl p-4`}>
-                <h3 className="text-xl font-semibold text-blue-700 mb-1">2. Notre mission</h3>
-                <p className={`${textColor} md:text-xl text-lg`}>
-                  Développer une plateforme innovante pour faciliter le suivi et la prise en charge psychologique.
-                </p>
-              </div>
-
-              <div className={`border ${borderColor} rounded-2xl p-4`}>
-                <h3 className="text-xl font-semibold text-blue-700 mb-1">3. Pourquoi nous ?</h3>
-                <p className={`${textColor} md:text-xl text-lg`}>
-                  Parce que nous croyons qu’aucune vie ne mérite d’être oubliée, et que la technologie peut être un pont vers la dignité.
-                </p>
-              </div>
+        {/* Notre Histoire */}
+        <section className= {`py-16 px-6 lg:px-20 ${
+                        theme === "light" 
+                            ? "bg-white text-black" 
+                            : "bg-black text-white"
+                    }`} >
+          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl font-bold mb-6 text-[#08A3DC]">Notre Histoire</h2>
+              <p className="mb-4 text-lg">
+                MentisCare est né d’un constat poignant : au Bénin, la santé mentale est encore largement négligée.
+              </p>
+              <p className="mb-4 text-lg">
+                Lors d’une immersion au <strong>Centre Psychiatrique Saint Camille de Tokan</strong>, notre équipe a réalisé l'urgence d'agir.
+              </p>
+              <blockquote className="italic border-l-4 border-blue-600 pl-4 text-gray-600 dark:text-gray-900">
+                « Digitaliser la santé mentale au Bénin, c’est offrir un avenir plus digne, plus humain, et plus connecté. »
+              </blockquote>
+            </div>
+            <div>
+              <img
+                src="../src/assets/images/medecin.webp"
+                alt="MentisCare illustration"
+                className="rounded-2xl shadow-xl w-full h-[350px] object-cover"
+              />
             </div>
           </div>
+        </section>
+
+        {/* Nos Valeurs */}
+        <section className={` py-16 ${
+                        theme === "light" 
+                            ? "bg-white text-black" 
+                            : "bg-black text-white"
+                    }`}>
+          <div className="max-w-7xl mx-auto px-6 text-center">
+            <h2 className="text-3xl font-bold mb-12 text-[#08A4DC]">Nos Valeurs</h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                { icon: '💙', title: 'Empathie', text: 'Chaque patient est écouté et accompagné avec respect et dignité.' },
+                { icon: '💡', title: 'Innovation', text: 'Nous utilisons la technologie pour améliorer la prise en charge.' },
+                { icon: '🤝', title: 'Solidarité', text: 'Nous travaillons main dans la main avec les communautés locales.' },
+                { icon: '📚', title: 'Éducation', text: 'Informer pour briser les tabous liés à la santé mentale.' },
+              ].map((valeur, index) => (
+               <div
+  key={index}
+  className={`p-6 rounded-lg text-left transition-all duration-300
+    ${theme === "light"
+      ? "bg-white text-black shadow-lg shadow-gray-300"
+      : "bg-black text-white shadow-lg shadow-white/20"}`}
+>
+  <div className="text-4xl mb-4">{valeur.icon}</div>
+  <h3 className="font-semibold text-xl mb-2">{valeur.title}</h3>
+  <p className="text-sm">{valeur.text}</p>
+</div>
+
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Notre Identité */}
+        <section className={` py-16 ${
+                        theme === "light" 
+                            ? "bg-white text-black" 
+                            : "bg-black text-white"
+                    }`}>
+  <div className="container mx-auto px-4">
+    <div className="max-w-4xl mx-auto text-center">
+      <h2 className="text-3xl font-bold text-[#08A3DC] mb-8">
+        Notre Mission
+      </h2>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Vision */}
+        <div className="border-l-4 border-[#08A3DC]  rounded shadow p-6">
+          <h3 className="text-2xl text-[#003A44] font-semibold mb-4">Notre Vision</h3>
+          <p className=" text-lg">
+            Offrir à chaque personne en détresse un accès digne, humain et durable à des soins adaptés,
+            grâce à une technologie bienveillante au service de la santé mentale.
+          </p>
         </div>
-      </section>
-    </section>
+
+        {/* Engagement */}
+        <div className="border-l-4 border-[#08A3DC] rounded shadow p-6">
+          <h3 className="text-2xl text-[#003A44] font-semibold mb-4">Notre Engagement</h3>
+          <p className=" text-lg">
+            Développer des outils numériques efficaces, accessibles et centrés sur l'humain,
+            pour accompagner, écouter et orienter ceux qui en ont le plus besoin.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+        {/* Équipe */}
+        <section className={` py-16 px-6 ${
+                        theme === "light" 
+                            ? "bg-white text-black " 
+                            : "bg-black text-white"
+                    }`}>
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl font-bold text-[#08A3DC] mb-10">Notre Équipe</h2>
+            <div className={` flex flex-col items-center p-6 rounded-xl ${
+                        theme === "light" 
+                            ? "bg-white text-black shadow-lg shadow-gray-300" 
+                            : "bg-black text-white shadow-lg shadow-white/20"
+                    }`}>
+              <img
+                src="https://images.unsplash.com/photo-1721322800607-8c38375eef04?w=200&h=200&fit=crop"
+                alt="Gréliane DAGBEDJI"
+                className="w-32 h-32 rounded-full object-cover mb-4"
+              />
+              <h3 className="text-xl font-semibold">Gréliane DAGBEDJI</h3>
+              <p className="text-blue-700 font-medium mb-2">Fondatrice & Directrice Générale</p>
+              <p className="text-gray-600 dark:text-gray-300 max-w-xl">
+                Entrepreneure visionnaire avec une passion pour l'excellence et l'innovation. Gréliane dirige MentisCare avec détermination et humanité, toujours à l’écoute des besoins de ceux que la société oublie.
+              </p>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
   );
 };
 

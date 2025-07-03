@@ -8,12 +8,12 @@ type FooterProps = {
 export default function Footer({ theme = "light" }: FooterProps) {
   return (
     <footer
-      className={`py-12 text-xl md:text-lg transition-colors duration-300 ${
+      className={`py-12 text-xl md:text-[16px] transition-colors duration-300 ${
         theme === "light"
           ? "bg-gradient-to-b from-blue-50 to-white text-black"
           : "bg-black text-white"
       }`}
-      style={{ fontFamily: "Winky Sans, sans-serif" }}
+     style={{ fontFamily: 'Montserrat, sans-serif' }}
     >
       <div className="max-w-8xl mx-auto px-[10%] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {/* À propos de nous */}
@@ -23,7 +23,7 @@ export default function Footer({ theme = "light" }: FooterProps) {
             <span className="absolute left-0 bottom-0 w-1/2 h-1 rounded-md bg-[#08A3DC]"></span>
           </h3>
           <h2 className="text-3xl font-bold text-[#08A3DC] mb-2">MentisCare</h2>
-          <p className={`text-lg ${theme === "light" ? "text-black" : "text-white"}`}>
+          <p className={`text-[16px] ${theme === "light" ? "text-black" : "text-white"}`}>
             Une plateforme numérique dédiée au bien-être mental, offrant un suivi et un accompagnement personnalisé.
           </p>
           <div className="flex gap-4 mt-4">
@@ -41,7 +41,7 @@ export default function Footer({ theme = "light" }: FooterProps) {
             Liens rapides
             <span className="absolute left-0 bottom-0 w-1/2 h-1 rounded-md bg-[#08A3DC]"></span>
           </h3>
-          <ul className={`${theme === "light" ? "text-black" : "text-white"} text-lg`}>
+          <ul className={`${theme === "light" ? "text-black" : "text-white"} text-[16px]`}>
             {[
               { label: "Accueil", path: "/" },
               { label: "Fonctionnalités", path: "/fonctionnalites" },
@@ -62,7 +62,7 @@ export default function Footer({ theme = "light" }: FooterProps) {
             Nos services
             <span className="absolute left-0 bottom-0 w-1/2 h-1 rounded-md bg-[#08A3DC]"></span>
           </h3>
-          <ul className={`${theme === "light" ? "text-black" : "text-white"} text-lg`}>
+          <ul className={`${theme === "light" ? "text-black" : "text-white"} text-[16px]`}>
             {[
               { label: "Consultations en ligne", path: "/services#consultation" },
               { label: "Suivi personnalisé", path: "/services#suivi" },
@@ -82,7 +82,7 @@ export default function Footer({ theme = "light" }: FooterProps) {
             Newsletter
             <span className="absolute left-0 bottom-0 w-1/2 h-1 rounded-md bg-[#08A3DC]"></span>
           </h3>
-          <p className={`mb-4 text-lg ${theme === "light" ? "text-black" : "text-white"}`}>
+          <p className={`mb-4 text-[16px] ${theme === "light" ? "text-black" : "text-white"}`}>
             Inscrivez-vous pour recevoir des conseils et actualités sur la santé mentale.
           </p>
           <div className="flex">

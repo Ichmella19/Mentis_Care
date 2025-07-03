@@ -6,7 +6,7 @@ type HeroSectionProps = {
   theme?: "light" | "dark";
 };
 
-export default function Fonctionnalites({ theme = "light" }: HeroSectionProps) {
+export default function Home({ theme = "light" }: HeroSectionProps) {
     const navigate = useNavigate();
     
     const services = [
@@ -42,8 +42,8 @@ export default function Fonctionnalites({ theme = "light" }: HeroSectionProps) {
             <main
                 className={`w-full h-full mt-[40px] min-h-screen overflow-hidden transition-colors duration-300 ${
                     theme === "light" 
-                        ? "bg-gradient-to-b from-blue-50 to-white text-black" 
-                        : "bg-gradient-to-b from-gray-900 to-black text-white"
+                        ? "bg-white text-black" 
+                        : "bg-black text-white"
                 }`}
             >
                 {/* Hero Section */}
@@ -69,14 +69,14 @@ export default function Fonctionnalites({ theme = "light" }: HeroSectionProps) {
                     >
                         <h1
                             className="md:text-5xl text-4xl font-bold mb-4"
-                            style={{ fontFamily: "Winky Sans, sans-serif" }}
+                           style={{ fontFamily: 'Montserrat, sans-serif' }}
                         >
                             Prenez soin du bien-être mental de vos proches avec{" "}
                             <span className="text-[#08A3DC]">MentisCare</span>
                         </h1>
                         <p
                             className="md:text-xl text-lg mb-6"
-                            style={{ fontFamily: "Winky Sans, sans-serif" }}
+                        style={{ fontFamily: 'Montserrat, sans-serif' }}
                         >
                             Une plateforme numérique pour accompagner et suivre les personnes en
                             détresse mentale, en offrant des consultations, des outils de suivi
@@ -91,7 +91,7 @@ export default function Fonctionnalites({ theme = "light" }: HeroSectionProps) {
                                         ? "bg-[#08A3DC] text-white" 
                                         : "bg-[#08A3DC] text-white"
                                 }`}
-                                style={{ fontFamily: "Winky Sans, sans-serif" }}
+                               style={{ fontFamily: 'Montserrat, sans-serif' }}
                                 onClick={() => navigate("/services")}
                             >
                                 Découvrir nos services
@@ -102,7 +102,7 @@ export default function Fonctionnalites({ theme = "light" }: HeroSectionProps) {
                                         ? "bg-white border border-[#08A3DC] text-[#08A3DC]" 
                                         : "bg-gray-800 border border-[#08A3DC] text-white"
                                 }`}
-                                style={{ fontFamily: "Winky Sans, sans-serif" }}
+                              style={{ fontFamily: 'Montserrat, sans-serif' }}
                                 onClick={() => navigate("/contact")}
                             >
                                 Besoin d’aide ? Contactez-nous
@@ -115,10 +115,10 @@ export default function Fonctionnalites({ theme = "light" }: HeroSectionProps) {
                 <section 
                     className={`py-16 px-6 transition-colors duration-300 ${
                         theme === "light" 
-                            ? "bg-gradient-to-b from-blue-50 to-white text-black" 
-                            : "bg-gradient-to-b from-gray-900 to-black text-white"
+                            ? "bg-white text-black" 
+                            : "bg-black text-white"
                     }`} 
-                    style={{ fontFamily: "Winky Sans, sans-serif" }}
+                  style={{ fontFamily: 'Montserrat, sans-serif' }}
                 >
                     <div className="max-w-4xl mx-auto text-center">
                         <motion.h2
@@ -127,7 +127,7 @@ export default function Fonctionnalites({ theme = "light" }: HeroSectionProps) {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 1 }}
                         >
-                            <span className={theme === "light" ? "text-[#003A44]" : "text-blue-300"}>
+                            <span className={theme === "light" ? "text-[#003A44]" : "text-[#08A3DC]"}>
                                 Pourquoi cette plateforme ?
                             </span>
                         </motion.h2>
@@ -153,22 +153,22 @@ export default function Fonctionnalites({ theme = "light" }: HeroSectionProps) {
                 <section 
                     className={`py-16 px-6 text-center transition-colors duration-300 ${
                         theme === "light" 
-                               ? "bg-gradient-to-b from-blue-50 to-white text-black"
+                               ? "bg-white text-black"
           : "bg-black text-white"
                     }`}
                 >
                     <div className="max-w-5xl mx-auto">
                         <h2
                             className="md:text-5xl text-4xl font-bold mb-6"
-                            style={{ fontFamily: "Winky Sans, sans-serif" }}
+                            style={{ fontFamily: 'Montserrat, sans-serif' }}
                         >
-                            <span className={theme === "light" ? "text-[#003A44]" : "text-blue-300"}>
+                            <span className={theme === "light" ? "text-[#003A44]" : "text-[#08A3DC]"}>
                                 Témoignages & Impacts
                             </span>
                         </h2>
                         <p
                             className="mb-12 md:text-xl text-lg"
-                            style={{ fontFamily: "Winky Sans, sans-serif" }}
+                         style={{ fontFamily: 'Montserrat, sans-serif' }}
                         >
                             <span className={theme === "light" ? "text-black" : "text-white"}>
                                 Découvrez les témoignages des familles que nous avons pu accompagner et soutenir.
@@ -210,13 +210,13 @@ export default function Fonctionnalites({ theme = "light" }: HeroSectionProps) {
                                     <div className="mb-4">{service.icon}</div>
                                     <h3 
                                         className={`text-xl font-semibold mb-2 ${theme === "light" ? "text-gray-900" : "text-white"}`}  
-                                        style={{ fontFamily: "Winky Sans, sans-serif" }}
+                                       style={{ fontFamily: 'Montserrat, sans-serif' }}
                                     >
                                         {service.title}
                                     </h3>
                                     <p 
                                         className={`text-lg ${theme === "light" ? "text-black" : "text-white"}`}  
-                                        style={{ fontFamily: "Winky Sans, sans-serif" }}
+                                     style={{ fontFamily: 'Montserrat, sans-serif' }}
                                     >
                                         {service.description}
                                     </p>

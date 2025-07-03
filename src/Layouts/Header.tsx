@@ -21,7 +21,7 @@ const Header: React.FC<HeaderProps> = ({ theme, setTheme }) => {
   return (
     <header
       className={`w-full fixed top-0 left-0 z-50 py-4 shadow-md ${isLight ? "bg-white text-black" : "bg-black text-white"}`}
-      style={{ fontFamily: "Winky Sans, sans-serif" }}
+      style={{ fontFamily: 'Montserrat, sans-serif' }}
     >
       <div className="max-w-screen-2xl mx-auto flex items-center justify-between px-4 md:px-8 lg:px-16">
         

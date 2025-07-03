@@ -96,7 +96,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ theme = "light" }) => {
                   content: Yup.string().required("Veuillez écrire un message"),
                 })}
                 onSubmit={(values, { resetForm }) => {
-                  console.log("Formulaire soumis :", values);
+                  // console.log("Formulaire soumis :", values);
                   setSuccessMessage("Message envoyé avec succès !");
                   setErrorMessage("");
                   resetForm();

@@ -28,8 +28,8 @@ interface ThemeProps {
   });
 
   const onSubmit = (values: FormValues, { setSubmitting }: FormikHelpers<FormValues>) => {
-    console.log('Données soumises :', values);
-    alert('Inscription réussie !');
+    // console.log('Données soumises :', values);
+    // alert('Inscription réussie !');
     setSubmitting(false);
   };
 
@@ -40,6 +40,8 @@ interface ThemeProps {
         className="w-full lg:w-1/2 relative bg-cover bg-center h-[300px] lg:h-auto"
         style={{ backgroundImage: `url(${Image})` }}
       >
+      
+
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white bg-opacity-60 backdrop-blur-sm rounded-[20px] p-5 shadow-xl border border-white border-opacity-20 w-[90%] max-w-[500px] h-[200px] lg:w-[600px] lg:h-[550px] flex flex-col justify-center items-center">
           <h1 className="text-[40px] lg:text-[80px] drop-shadow-md text-center">
             <span className="text-[#3252DF]">Mentis</span>

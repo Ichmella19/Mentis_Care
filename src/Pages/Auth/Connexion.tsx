@@ -36,6 +36,7 @@ const Login: React.FC<ThemeProps> = () => {
     }, 1000);
   };
 
+
   return (
     <div className="flex flex-col lg:flex-row h-screen" style={{ fontFamily: 'Winky Sans, sans-serif' }}>
       {/* Partie gauche avec image */}
