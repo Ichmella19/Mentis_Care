@@ -6,13 +6,14 @@ type HeaderProps = {
   theme: "light" | "dark";
   setTheme: React.Dispatch<React.SetStateAction<"light" | "dark">>;
 };
+
 const Header: React.FC<HeaderProps> = ({ theme, setTheme }) => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
-  const isLight = theme === 'light';
+  const isLight = theme === "light";
 
   const toggleTheme = () => {
-    setTheme(prev => (prev === 'light' ? 'dark' : 'light'));
+    setTheme((prev) => (prev === "light" ? "dark" : "light"));
   };
 
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -20,11 +21,12 @@ const Header: React.FC<HeaderProps> = ({ theme, setTheme }) => {
 
   return (
     <header
-      className={`w-full fixed top-0 left-0 z-50 py-4 shadow-md ${isLight ? "bg-white text-black" : "bg-black text-white"}`}
-      style={{ fontFamily: 'Montserrat, sans-serif' }}
+      className={`w-full fixed top-0 left-0 z-50 py-4 shadow-md ${
+        isLight ? "bg-white text-black" : "bg-black text-white"
+      }`}
+      style={{ fontFamily: "Montserrat, sans-serif" }}
     >
-      <div className="max-w-screen-2xl mx-auto flex items-center justify-between px-4 md:px-8 lg:px-16">
-        
+      <div className="max-w-screen-2xl mx-auto flex items-center justify-between px-4 sm:px-6 md:px-8 lg:px-16">
         {/* Logo */}
         <img
           src="/src/assets/images/logo.png"
@@ -33,7 +35,7 @@ const Header: React.FC<HeaderProps> = ({ theme, setTheme }) => {
         />
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex flex-1 justify-center">
+        <nav className="hidden xl:flex flex-1 justify-center">
           <ul className="flex gap-8 font-medium text-[16px] items-center">
             {[
               { label: "Accueil", to: "/" },
@@ -46,9 +48,10 @@ const Header: React.FC<HeaderProps> = ({ theme, setTheme }) => {
                 <NavLink
                   to={to}
                   className={({ isActive }) =>
-                    `px-2 pb-1 ${isActive
-                      ? "text-[#08A3DC] after:scale-x-100"
-                      : "text-inherit after:scale-x-0"
+                    `px-2 pb-1 ${
+                      isActive
+                        ? "text-[#08A3DC] after:scale-x-100"
+                        : "text-inherit after:scale-x-0"
                     } after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:bg-[#08A3DC] after:transition-transform after:duration-300 group-hover:after:scale-x-100`
                   }
                 >
@@ -60,8 +63,7 @@ const Header: React.FC<HeaderProps> = ({ theme, setTheme }) => {
         </nav>
 
         {/* Boutons & thème (desktop) */}
-        <div className="hidden lg:flex items-center gap-4">
-          {/* Boutons Connexion / Dons */}
+        <div className="hidden xl:flex items-center gap-4">
           <div className="flex rounded-lg overflow-hidden shadow border border-[#08A3DC]">
             <button
               className="bg-[#08A3DC] text-white px-6 py-2 hover:bg-[#0b91c6] transition duration-200"
@@ -70,27 +72,28 @@ const Header: React.FC<HeaderProps> = ({ theme, setTheme }) => {
               Se Connecter
             </button>
             <button
-              className="bg-[#014AA9] text-white px-6 py-2 hover:bg-[#013a87] transition duration-200"
-              onClick={() => navigate("/inscription")}
+              className="bg-[#003A44] text-white px-6 py-2 transition duration-200"
+              onClick={() => navigate("/donnation")}
             >
               Faire des dons
             </button>
           </div>
 
-          {/* Thème */}
           <button
             onClick={toggleTheme}
             className="p-2 rounded-full bg-gray-200 dark:bg-gray-700"
             aria-label="Toggle dark mode"
           >
-            {isLight
-              ? <Moon className="text-gray-800" size={20} />
-              : <Sun className="text-yellow-400" size={20} />}
+            {isLight ? (
+              <Moon className="text-gray-800" size={20} />
+            ) : (
+              <Sun className="text-yellow-400" size={20} />
+            )}
           </button>
         </div>
 
-        {/* Mobile - Buttons + menu */}
-        <div className="flex items-center gap-2 lg:hidden">
+        {/* Mobile & Tablet - Buttons + menu */}
+        <div className="flex items-center gap-2 xl:hidden">
           <button
             className="bg-[#08A3DC] text-white px-2 py-1 rounded-lg text-sm"
             onClick={() => navigate("/connexion")}
@@ -98,19 +101,21 @@ const Header: React.FC<HeaderProps> = ({ theme, setTheme }) => {
             Connexion
           </button>
           <button
-            className="bg-[#08A3DC] text-white px-2 py-1 rounded-lg text-sm"
-            onClick={() => navigate("/inscription")}
+            className="bg-[#003A44] text-white px-2 py-1 rounded-lg text-sm"
+            onClick={() => navigate("/donnation")}
           >
-            Inscription
+            Donnation
           </button>
           <button
             onClick={toggleTheme}
             className="p-2 rounded-full bg-gray-200 dark:bg-gray-700"
             aria-label="Toggle theme"
           >
-            {isLight
-              ? <Moon className="text-gray-800" size={20} />
-              : <Sun className="text-yellow-400" size={20} />}
+            {isLight ? (
+              <Moon className="text-gray-800" size={20} />
+            ) : (
+              <Sun className="text-yellow-400" size={20} />
+            )}
           </button>
           <button
             onClick={toggleMenu}
@@ -122,9 +127,9 @@ const Header: React.FC<HeaderProps> = ({ theme, setTheme }) => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Menu pour mobile ET tablette */}
       <div
-        className={`lg:hidden fixed top-[64px] left-0 w-full z-40 px-6 py-6 transition-transform duration-300 ease-in-out ${
+        className={`xl:hidden fixed top-[64px] left-0 w-full z-40 px-6 py-6 transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         } ${isLight ? "bg-gray-800" : "bg-gray-900"}`}
       >
@@ -142,7 +147,9 @@ const Header: React.FC<HeaderProps> = ({ theme, setTheme }) => {
                 onClick={closeMenu}
                 className={({ isActive }) =>
                   `block px-4 py-2 rounded-md ${
-                    isActive ? "bg-[#08A3DC] text-white" : "text-white hover:bg-gray-700"
+                    isActive
+                      ? "bg-[#08A3DC] text-white"
+                      : "text-white hover:bg-gray-700"
                   }`
                 }
               >

@@ -38,7 +38,7 @@ const Login: React.FC<ThemeProps> = () => {
 
 
   return (
-    <div className="flex flex-col lg:flex-row h-screen" style={{ fontFamily: 'Winky Sans, sans-serif' }}>
+    <div className="flex flex-col lg:flex-row h-screen" style={{ fontFamily: 'Montserrat, sans-serif' }}>
       {/* Partie gauche avec image */}
       <div
         className="w-full lg:w-1/2 relative bg-cover bg-center h-[300px] lg:h-auto"

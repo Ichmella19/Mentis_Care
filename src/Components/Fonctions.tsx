@@ -31,10 +31,10 @@ export default function Fonctionnalites({ theme = "light" }: FonctionnalitesProp
   const textMain = isLight ? "text-black" : "text-white";
   const sectionBg = isLight ? "bg-[#F0F6F9]" : "bg-[#1F2937]";
   const quoteBg = isLight ? "bg-[#EAF6FB]" : "bg-[#111827]";
-  const ctaBg = isLight ? "bg-[#2E86AB] text-white" : "bg-blue-900 text-white";
+  const ctaBg = isLight ? "bg-[#2E86AB] text-white" : "bg-[#2E86AB] text-white";
 
   return (
-    <div className={`${bgMain} ${textMain}`} style={{ fontFamily: "Winky Sans, sans-serif" }}>
+    <div className={`${bgMain} ${textMain}`} style={{ fontFamily: 'Montserrat, sans-serif' }}>
       {/* Hero */}
       <div className="bg-[#2E86AB] text-white py-[120px] px-6 md:px-24 text-center">
         <motion.h1 initial={{ opacity: 0, y: -30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-5xl font-extrabold mb-6">MentisCare</motion.h1>
@@ -51,7 +51,7 @@ export default function Fonctionnalites({ theme = "light" }: FonctionnalitesProp
             <motion.div key={i} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.2 }} className={`${sectionBg} border border-[#D3EAF2] rounded-xl p-6 shadow-md hover:shadow-lg transition`}>
               <div className="text-5xl mb-4 text-[#2E86AB]">{feature.icon}</div>
               <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-300">{feature.description}</p>
+              <p className="text-sm ">{feature.description}</p>
             </motion.div>
           ))}
         </div>
@@ -63,8 +63,8 @@ export default function Fonctionnalites({ theme = "light" }: FonctionnalitesProp
         <Swiper modules={[Pagination, Autoplay]} spaceBetween={30} slidesPerView={1} pagination={{ clickable: true }} autoplay={{ delay: 5000 }} loop={true} className="max-w-3xl mx-auto">
           {testimonies.map((t, i) => (
             <SwiperSlide key={i}>
-              <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border-l-4 border-[#2E86AB] min-h-[200px] flex flex-col justify-between">
-                <p className="italic mb-4 text-gray-800 dark:text-gray-300">“{t.quote}”</p>
+              <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="bg-gray-200 dark:bg-gray-800 rounded-xl shadow-lg p-6 border-l-4 border-[#2E86AB] min-h-[200px] flex flex-col justify-between">
+                <p className="italic mb-4 text-white dark:text-white">“{t.quote}”</p>
                 <p className="font-semibold text-right text-gray-900 dark:text-white">— {t.name}</p>
               </motion.div>
             </SwiperSlide>
@@ -75,7 +75,7 @@ export default function Fonctionnalites({ theme = "light" }: FonctionnalitesProp
       {/* Partenaires */}
       <div className="py-16 px-6 md:px-24 text-center">
         <motion.h2 initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-3xl font-bold text-[#2E86AB] mb-8">Nos partenaires clés</motion.h2>
-        <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-10">MentisCare collabore avec des professionnels de la santé mentale, des ONG et des centres spécialisés comme Saint Camille de Tokan pour garantir un accompagnement de qualité.</p>
+        <p className=" max-w-2xl mx-auto mb-10">MentisCare collabore avec des professionnels de la santé mentale, des ONG et des centres spécialisés comme Saint Camille de Tokan pour garantir un accompagnement de qualité.</p>
         <div className="flex flex-wrap justify-center gap-10 text-4xl">
           <span>🏥</span><span>🤝</span><span>📡</span><span>💊</span>
         </div>

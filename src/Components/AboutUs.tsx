@@ -37,7 +37,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ theme = "light" }: AboutUsProps) => {
               <p className="mb-4 text-lg">
                 Lors d’une immersion au <strong>Centre Psychiatrique Saint Camille de Tokan</strong>, notre équipe a réalisé l'urgence d'agir.
               </p>
-              <blockquote className="italic border-l-4 border-blue-600 pl-4 text-gray-600 dark:text-gray-900">
+              <blockquote className="italic border-l-4 border-blue-600 pl-4 ">
                 « Digitaliser la santé mentale au Bénin, c’est offrir un avenir plus digne, plus humain, et plus connecté. »
               </blockquote>
             </div>

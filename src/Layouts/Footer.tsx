@@ -104,6 +104,33 @@ export default function Footer({ theme = "light" }: FooterProps) {
       MentisCare. Tous droits réservés.
         </p>
       </div>
+  <div className="fixed bottom-8 right-8 z-40 opacity-100 transform-none">
+  <button
+    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+    className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-semibold ring-offset-background 
+    focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 
+    disabled:pointer-events-none disabled:opacity-50 
+    transform hover:scale-105 hover:-translate-y-0.5 
+    h-12 w-12 rounded-full bg-[#003A44] text-white shadow-lg hover:shadow-xl 
+    transition-all duration-300"
+    aria-label="Remonter en haut"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-5 w-5"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="m5 12 7-7 7 7" />
+      <path d="M12 19V5" />
+    </svg>
+  </button>
+</div>
+
     </footer>
   );
 }
